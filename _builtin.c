@@ -14,7 +14,7 @@ int shell_cd(char **args, char *i_stdin, int *exit_status)
 	int status;
 	char str[128];
 	(void)i_stdin;
-	(void)exit_status
+	(void)exit_status;
 	getcwd(str, sizeof(str));
 
 	if (args[1] == NULL)
