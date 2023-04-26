@@ -1,4 +1,50 @@
 #include "shell.h"
+
+/** main - A UNIX command line interpreter
+ *
+ * @argc: Count the number of arguments supplied to the program
+ * @argv: Array of pointers that contains the string values
+ *
+ * Return: Always 0.
+ */
+
+int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
+{
+	char **av = NULL;
+	char *str_buffer = NULL;
+	int status = 1, e_status = 0;
+	size_t len = 0;
+	ssize_t n_chars = 0;
+	
+	while (status && n_chars != EOF)
+	{
+		len = 0;
+		status = isatty(STDIN_FILENO);
+		
+		if (status)
+			write(STDOUT_FILENO, "", 0);
+		signal(SIGINT, sigint_handler);
+		n_chars = getline(&str_buffer, &len, stdin);
+		
+		if (n_chars == -1)
+		{
+			free(str_buffer);
+			break;
+		}
+		if (space_validate(str_buffer))
+		{
+			free(str_buffer);
+			continue;
+		}
+		av = shell_tokens(str_buffer);
+		if (*av[0] == '\0')
+			continue;
+		status = shell_builtin(av, str_buffer, argv, &e_status);
+		free(str_buffer);
+		free(av);
+	}
+	return (0);
+}
 /**
  * get_token_path - A function that is used to tokenizer the path
  *
