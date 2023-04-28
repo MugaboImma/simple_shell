@@ -1,9 +1,10 @@
 #include "shell.h"
 
 /** main - A UNIX command line interpreter
- *
- * @argc: Count the number of arguments supplied to the program
- * @argv: Array of pointers that contains the string values
+ * @argc __attribute__((unused)): Count the number of arguments
+ * supplied to the program
+ * @argv__attribute__((unused)): Array of pointers that contains the
+ * string values
  *
  * Return: Always 0.
  */
@@ -15,17 +16,17 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	int status = 1, e_status = 0;
 	size_t len = 0;
 	ssize_t n_chars = 0;
-	
+
 	while (status && n_chars != EOF)
 	{
 		len = 0;
 		status = isatty(STDIN_FILENO);
-		
+
 		if (status)
 			write(STDOUT_FILENO, "", 0);
 		signal(SIGINT, sigint_handler);
 		n_chars = getline(&str_buffer, &len, stdin);
-		
+
 		if (n_chars == -1)
 		{
 			free(str_buffer);
