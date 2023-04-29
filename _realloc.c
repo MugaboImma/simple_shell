@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _realloc - A function that reallocates a memory allocation
+ * _realloc - function that reallocates a memory allocation
  * @ptr: pointer to array
  * @old_size: old size
  * @new_size: new size
@@ -9,7 +9,6 @@
  * Return: A pointer to the allocated memory
  *
  */
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *str;

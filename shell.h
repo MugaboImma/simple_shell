@@ -1,5 +1,5 @@
-#ifndef _SHELL_H
-#define _SHELL_H
+#ifndef SHELL_H
+#define SHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -44,5 +44,5 @@ void sigint_handler(int n_sign);
 int space_validate(char *i_stdin);
 char **get_token_path(char *input);
 char **shell_tokens(char *input);
-
 #endif /* SHELL_H */
+

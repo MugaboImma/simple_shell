@@ -1,3 +1,4 @@
+
 #include "shell.h"
 
 /**
@@ -22,6 +23,7 @@ void sigint_handler(int n_sign)
  *
  * Return: pointer to two strings concatenates
  */
+
 char *str_cat(char *str1, char *str2)
 {
 	char *str;
@@ -34,7 +36,6 @@ char *str_cat(char *str1, char *str2)
 
 	if (str2 == NULL)
 		str2 = "";
-
 	for (n = 0; str1[n] != '\0'; n++)
 		continue;
 	for (m = 0; str2[m] != '\0'; m++)
@@ -56,7 +57,7 @@ char *str_cat(char *str1, char *str2)
 }
 
 /**
- * _getenvir - A function that finds a specific variable name
+ * _getenvir - S function that finds a specific variable name
  * @var: environment variable
  *
  * Return: pointer to the corresponding value string

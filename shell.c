@@ -2,6 +2,7 @@
 
 /**
  * main - A UNIX command line interpreter
+ *
  * @argc: Count the number of arguments supplied to the program
  * @argv: Array of pointers that contains the string values
  *
@@ -45,12 +46,13 @@ int main(int argc __attribute__((unused)), char **argv __attribute__((unused)))
 	}
 	return (0);
 }
+
 /**
- * get_token_path - A function that is used to tokenizer the path
+ * get_token_path - A function that tokenizer path
  *
- * @input: the path to be tokenize
+ * @input: path
  *
- * Return: A double pointer to the tokens of path
+ * Return: Double pointer to tokens of paths
  */
 
 char **get_token_path(char *input)
@@ -90,10 +92,12 @@ char **get_token_path(char *input)
 }
 
 /**
- * input_validate - A function that validates if path exists
+ * input_validate - A function that validate if path exists
  *
  * @args: arguments for command
  * @argv: Array that contains the string values
+ * of things that were entered on the command line
+ * when I run this program
  *
  * Return: new arguments with complete path
  */
@@ -143,11 +147,12 @@ char *input_validate(char **args, char **argv)
 }
 
 /**
- * shell_execute - A function that executes the commands in a child process
+ * shell_execute - A function that executes the commands
+ * in a child process
  *
- * @args: the tokens that were previously separated with delimiters
- * @argv: argument vector
- * @exit_status: The exit status
+ * @args: tokens that were previously separated with delimiters
+ * @argv: argv
+ * @exit_status: exit status
  *
  * Return: Always 1 (success).
  *
@@ -192,11 +197,12 @@ int shell_execute(char **args, char **argv, int *exit_status)
 }
 
 /**
- * shell_tokens - A function that splits commands with delimiters
+ * shell_tokens - Function that splits commands with delimiters
  * @input: string that comes from the input
  *
- * Return: A double pointer to the tokens
+ * Return: double pointer to tokens
  */
+
 char **shell_tokens(char *input)
 {
 	int data_buf1 = 64, data_buf2 = 0, loc = 0;
