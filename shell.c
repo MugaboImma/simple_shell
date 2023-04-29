@@ -1,10 +1,9 @@
 #include "shell.h"
 
-/** main - A UNIX command line interpreter
- * @argc __attribute__((unused)): Count the number of arguments
- * supplied to the program
- * @argv__attribute__((unused)): Array of pointers that contains the
- * string values
+/**
+ * main - A UNIX command line interpreter
+ * @argc: Count the number of arguments supplied to the program
+ * @argv: Array of pointers that contains the string values
  *
  * Return: Always 0.
  */
